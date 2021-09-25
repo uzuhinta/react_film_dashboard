@@ -1,17 +1,28 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchTranslations } from './i18nAPI';
 import { defaultLang, supportedLangs } from './i18nConfig';
-import { createSlice } from '@reduxjs/toolkit';
-import languageEN from './locates/en/translate.json';
-import languageVI from './locates/vi/translate.json';
 
 const initialState = {
+    status: 'loading',
     lang: defaultLang,
     supportLangs: { ...supportedLangs },
 
-    translations: {
-        en: languageEN,
-        vi: languageVI,
-    },
+    translations: {},
 };
+
+export const setLangAsync = createAsyncThunk(
+    'i18n/setLangAsync',
+    async (lang, { getState, dispatch }) => {
+        const resolvedLang = lang || getState().i18n.lang;
+        console.log({ resolvedLang });
+
+        const translations = await fetchTranslations(resolvedLang);
+        console.log({ translations });
+        dispatch(i18nSlice.actions.setLang(resolvedLang));
+
+        return translations;
+    }
+);
 
 const i18nSlice = createSlice({
     name: 'i18n',
@@ -21,12 +32,25 @@ const i18nSlice = createSlice({
             state.lang = action.payload;
         },
     },
+    extraReducers: (builder) => {
+        builder.addCase(setLangAsync.pending, (state) => {
+            state.status = 'loading';
+        });
+
+        builder.addCase(setLangAsync.fulfilled, (state, action) => {
+            state.translations = action.payload;
+            state.status = 'idle';
+        });
+
+        builder.addCase(setLangAsync.rejected, (state, action) => {
+            state.status = 'error';
+        });
+    },
 });
 
 export const { setLang } = i18nSlice.actions;
 
-export const selectTranslations = (state) =>
-    state.i18n.translations[state.i18n.lang];
+export const selectTranslations = (state) => state.i18n.translations;
 
 export const selectLang = (state) => state.i18n.lang;
 

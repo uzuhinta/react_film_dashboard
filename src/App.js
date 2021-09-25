@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import LangSwitcher from 'features/i18n/components/LangSwitcher';
 import { ToggleTheme } from 'features/theme/components/ToggleTheme';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLangAsync } from 'features/i18n/i18nSlice';
 
 function App() {
-    return (
+    const dispatch = useDispatch();
+    const i18nStatus = useSelector((state) => state.i18n.status);
+    useEffect(() => dispatch(setLangAsync()), []);
+
+    return i18nStatus === 'loading' ? (
+        <div>loading</div>
+    ) : (
         <div className="App bg-primary transition-all duration-300">
             <header className="App-header">
                 <img src={logo} className="App-logo " alt="logo" />
