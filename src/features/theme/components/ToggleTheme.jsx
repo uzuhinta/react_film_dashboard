@@ -1,3 +1,4 @@
+import { selectTranslations } from 'features/i18n/i18nSlice';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle, selectTheme } from '../themeSlice';
@@ -5,6 +6,8 @@ import { toggle, selectTheme } from '../themeSlice';
 export const ToggleTheme = () => {
     const theme = useSelector(selectTheme);
     const dispatch = useDispatch();
+    const t = useSelector(selectTranslations);
+
     function isDark() {
         return theme === 'dark';
     }
@@ -23,7 +26,7 @@ export const ToggleTheme = () => {
                 checked={isDark()}
                 onChange={(e) => toggleTheme(e)}
             />
-            Dark Mode
+            {t.counters.darkMode}
         </label>
     );
 };

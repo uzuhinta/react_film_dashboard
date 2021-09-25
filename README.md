@@ -48,3 +48,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 Setup react tailwind without craco `not use dark/light solution`: https://medium.com/capgemini-web-development/setup-tailwind-on-create-react-app-without-craco-f9b6063ecde0
 
 Setup dark/light with useContext: https://jeffjadulco.com/blog/dark-mode-react-tailwind
+
+Set up custom i18n: https://phrase.com/blog/posts/roll-your-own-i18n-solution-react-redux/
