@@ -12,7 +12,9 @@ export default function LangSwitcher() {
     return (
         <select value={lang} onChange={handleChange}>
             {Object.entries(supportedLangs).map(([code, name]) => (
-                <option value={code}>{name}</option>
+                <option key={code} value={code}>
+                    {name}
+                </option>
             ))}
         </select>
     );
