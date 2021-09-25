@@ -9,7 +9,7 @@ import {
     selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
-import { ToggleTheme } from 'components/ToggleTheme';
+import { ToggleTheme } from 'features/theme/components/ToggleTheme';
 
 export function Counter() {
     const count = useSelector(selectCount);

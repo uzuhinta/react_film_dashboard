@@ -1,15 +1,18 @@
-import { ThemeContext } from 'app/themeContext';
-import { useContext } from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggle, selectTheme } from '../themeSlice';
 
 export const ToggleTheme = () => {
-    const { theme, setTheme } = useContext(ThemeContext);
-
+    const theme = useSelector(selectTheme);
+    const dispatch = useDispatch();
     function isDark() {
         return theme === 'dark';
     }
 
+    console.log(theme);
+
     function toggleTheme(e) {
-        setTheme(e.target.checked ? 'dark' : 'light');
+        dispatch(toggle());
         console.log(e.target.checked ? 'dark' : 'light');
     }
 
