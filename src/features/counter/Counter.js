@@ -21,7 +21,6 @@ export function Counter() {
 
     return (
         <div>
-            <ToggleTheme />
             <div className={styles.row}>
                 <button
                     className={styles.button}
