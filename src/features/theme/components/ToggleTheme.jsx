@@ -1,7 +1,7 @@
 import { selectTranslations } from 'features/i18n/i18nSlice';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggle, selectTheme } from '../themeSlice';
+import { toggle, selectTheme, setTheme } from '../themeSlice';
 
 export const ToggleTheme = () => {
     const theme = useSelector(selectTheme);
@@ -12,12 +12,14 @@ export const ToggleTheme = () => {
         return theme === 'dark';
     }
 
-    console.log(theme);
-
     function toggleTheme(e) {
         dispatch(toggle());
         console.log(e.target.checked ? 'dark' : 'light');
     }
+
+    useEffect(() => {
+        setTheme(theme);
+    }, []);
 
     return (
         <label>

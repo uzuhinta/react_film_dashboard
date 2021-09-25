@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 /**
  * @param theme: type string
  */
-const setTheme = (theme) => {
+export const setTheme = (theme) => {
     console.log('in set theme ' + theme);
     const isDark = theme === 'dark';
 
@@ -11,18 +11,10 @@ const setTheme = (theme) => {
 
     root.classList.remove(isDark ? 'light' : 'dark');
     root.classList.add(isDark ? 'dark' : 'light');
-    localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
 };
 
 const getInitialTheme = (_) => {
     if (typeof window !== 'undefined' && window.localStorage) {
-        const storedPrefs = window.localStorage.getItem('color-theme');
-        if (typeof storedPrefs === 'string') {
-            console.log({ storedPrefs });
-            setTheme(storedPrefs);
-            return storedPrefs;
-        }
-
         const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
         if (userMedia.matches) {
             setTheme('dark');
@@ -37,7 +29,7 @@ const getInitialTheme = (_) => {
 };
 
 const initialState = {
-    value: getInitialTheme(),
+    value: 'light',
 };
 
 export const themedSlice = createSlice({
