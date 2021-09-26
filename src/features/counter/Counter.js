@@ -9,14 +9,11 @@ import {
     selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
-import { ToggleTheme } from 'features/theme/components/ToggleTheme';
-import { selectTranslations } from 'features/i18n/i18nSlice';
 
 export function Counter() {
     const count = useSelector(selectCount);
     const dispatch = useDispatch();
     const [incrementAmount, setIncrementAmount] = useState('2');
-    const t = useSelector(selectTranslations);
     const incrementValue = Number(incrementAmount) || 0;
 
     return (

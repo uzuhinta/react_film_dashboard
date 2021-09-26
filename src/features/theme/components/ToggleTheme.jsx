@@ -1,5 +1,5 @@
 import { selectTranslations } from 'features/i18n/i18nSlice';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle, selectTheme, setTheme } from '../themeSlice';
 
@@ -19,6 +19,7 @@ export const ToggleTheme = () => {
 
     useEffect(() => {
         setTheme(theme);
+        
     }, []);
 
     return (
