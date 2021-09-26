@@ -10,7 +10,6 @@ import { auth, googleProvider } from './firebase';
 function* signInWithGoogle() {
     try {
         const { user } = yield auth.signInWithPopup(googleProvider);
-        console.log({user});
         yield put(
             googleSignInSuccess({
                 email: user.email,
