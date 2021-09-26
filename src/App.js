@@ -4,16 +4,18 @@ import { Counter } from './features/counter/Counter';
 import './App.css';
 import LangSwitcher from 'features/i18n/components/LangSwitcher';
 import { ToggleTheme } from 'features/theme/components/ToggleTheme';
-import firebase from 'features/auth/firebase';
 import LoginWithGoogle from 'features/auth/components/LoginWithGoogle';
 import SignOutWithGoogle from 'features/auth/components/SignOutWithGoogle';
 import { useSelector } from 'react-redux';
 import { selectAuth } from 'features/auth/authSlice';
+import routes from 'routes/routes';
+import { useRoutes } from 'react-router-dom';
 
 function App() {
     const auth = useSelector(selectAuth);
     console.log('In start app: ');
     console.log({ auth });
+    const content = useRoutes(routes(auth.user));
     return (
         <div className="App bg-primary transition-all duration-300">
             <header className="App-header">
@@ -21,7 +23,7 @@ function App() {
                 <LangSwitcher />
                 <ToggleTheme />
                 {auth.user ? <SignOutWithGoogle /> : <LoginWithGoogle />}
-                <Counter />
+                {content}
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
                 </p>
