@@ -14,7 +14,6 @@ import { useRoutes } from 'react-router-dom';
 function App() {
     const auth = useSelector(selectAuth);
     console.log('In start app: ');
-    console.log({ auth });
     const content = useRoutes(routes(auth.user));
     return (
         <div className="App bg-primary transition-all duration-300">
