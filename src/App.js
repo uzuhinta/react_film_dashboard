@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import LangSwitcher from 'features/i18n/components/LangSwitcher';
 import { ToggleTheme } from 'features/theme/components/ToggleTheme';
@@ -10,11 +9,11 @@ import { useSelector } from 'react-redux';
 import { selectAuth } from 'features/auth/authSlice';
 import routes from 'routes/routes';
 import { useRoutes } from 'react-router-dom';
+import ThemeRoutes from 'routes/routes';
 
 function App() {
     const auth = useSelector(selectAuth);
     console.log('In start app: ');
-    const content = useRoutes(routes(auth.user));
     return (
         <div className="App bg-primary transition-all duration-300">
             <header className="App-header">
@@ -22,7 +21,7 @@ function App() {
                 <LangSwitcher />
                 <ToggleTheme />
                 {auth.user ? <SignOutWithGoogle /> : <LoginWithGoogle />}
-                {content}
+                <ThemeRoutes />
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
                 </p>
