@@ -6,7 +6,7 @@ export default function LangSwitcher() {
     const lang = useSelector(selectLang);
     const supportedLangs = useSelector(selectSupportedLang);
     const dispatch = useDispatch();
-    function handleChange(e) {
+    const  handleChange = (e) => {
         dispatch(setLang(e.target.value));
     }
     return (

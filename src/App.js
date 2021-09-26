@@ -7,24 +7,20 @@ import { ToggleTheme } from 'features/theme/components/ToggleTheme';
 import firebase from 'features/auth/firebase';
 import LoginWithGoogle from 'features/auth/components/LoginWithGoogle';
 import SignOutWithGoogle from 'features/auth/components/SignOutWithGoogle';
+import { useSelector } from 'react-redux';
+import { selectAuth } from 'features/auth/authSlice';
 
 function App() {
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            setUser(user);
-        });
-    }, []);
-
-    console.log(user);
+    const auth = useSelector(selectAuth);
+    console.log('In start app: ');
+    console.log({ auth });
     return (
         <div className="App bg-primary transition-all duration-300">
             <header className="App-header">
                 <img src={logo} className="App-logo " alt="logo" />
                 <LangSwitcher />
                 <ToggleTheme />
-                {user ? <SignOutWithGoogle /> : <LoginWithGoogle />}
+                {auth.user ? <SignOutWithGoogle /> : <LoginWithGoogle />}
                 <Counter />
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
@@ -32,7 +28,7 @@ function App() {
                 <span>
                     <span>Learn </span>
                     <a
-                        className="App-link"
+                        className="App-link "
                         href="https://reactjs.org/"
                         target="_blank"
                         rel="noopener noreferrer"

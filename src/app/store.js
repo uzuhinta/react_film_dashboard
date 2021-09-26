@@ -13,7 +13,7 @@ import {
 } from 'redux-persist';
 import createSagaMiddleware from '@redux-saga/core';
 import logger from 'redux-logger';
-import authSaga from 'features/auth/authSaga';
+import rootSaga from './rootSaga';
 const persistConfig = {
     key: 'root',
     version: 1,
@@ -45,6 +45,6 @@ export const store = configureStore({
         }).concat(middlewares),
 });
 
-sagaMiddleware.run(authSaga);
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
