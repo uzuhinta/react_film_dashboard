@@ -11,33 +11,16 @@ import './App.css';
 import logo from './logo.svg';
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            light: '#757ce8',
-            main: '#3f50b5',
-            dark: '#002884',
-            contrastText: '#fff',
-        },
-        secondary: {
-            light: '#ff7961',
-            main: '#f44336',
-            dark: '#ba000d',
-            contrastText: '#000',
-        },
-    },
-});
 function App() {
     const auth = useSelector(selectAuth);
     console.log('In start app: ');
     return (
-        <div className="App bg-primary transition-all duration-300">
+        <div className="App bg-primary transition-colors duration-300">
             <LangSwitcher />
             <ToggleTheme />
             {auth.user ? <SignOutWithGoogle /> : <LoginWithGoogle />}
-            <ThemeProvider theme={theme}>
-                <ThemeRoutes />
-            </ThemeProvider>
+
+            <ThemeRoutes />
         </div>
     );
 }

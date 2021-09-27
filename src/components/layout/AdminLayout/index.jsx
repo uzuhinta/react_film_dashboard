@@ -1,4 +1,5 @@
 import { Box } from '@mui/system';
+import Header from 'components/Header';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -17,10 +18,9 @@ function AdminLayout() {
             <Box
                 sx={{
                     gridArea: 'header',
-                    backgroundColor: 'primary.main',
                 }}
             >
-                Header
+                <Header />
             </Box>
             <Box sx={{ gridArea: 'sidebar', backgroundColor: '#0f0' }}>
                 Sidebar
