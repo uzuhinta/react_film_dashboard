@@ -2,7 +2,7 @@ import { ThemeProvider } from '@mui/material';
 import { selectAuth } from 'features/auth/authSlice';
 import LoginWithGoogle from 'features/auth/components/LoginWithGoogle';
 import SignOutWithGoogle from 'features/auth/components/SignOutWithGoogle';
-import LangSwitcher from 'features/i18n/components/LangSwitcher';
+import LangSwitcher from 'features/i18n/components/LangSelect';
 import { ToggleTheme } from 'features/theme/components/ToggleTheme';
 import React from 'react';
 import { useSelector } from 'react-redux';

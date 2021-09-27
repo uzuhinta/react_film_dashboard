@@ -68,11 +68,9 @@ export const ToggleTheme = () => {
 
     useEffect(() => {
         setTheme(theme);
-        
     }, []);
 
     return (
-
         <FormControlLabel
             control={
                 <MaterialUISwitch
@@ -81,7 +79,7 @@ export const ToggleTheme = () => {
                     onChange={(e) => toggleTheme(e)}
                 />
             }
-            label="Dark Mode"
+            label={t.counters.darkMode}
         />
     );
 };
