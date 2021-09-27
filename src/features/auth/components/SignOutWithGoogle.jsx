@@ -1,8 +1,7 @@
+import { Button } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { googleSignOut } from '../authSlice';
-import { auth } from '../firebase';
-import styled from './Auth.module.css';
 
 function SignOutWithGoogle() {
     const dispatch = useDispatch();
@@ -10,11 +9,9 @@ function SignOutWithGoogle() {
         dispatch(googleSignOut());
     };
     return (
-        <div>
-            <button className={styled.button} onClick={handleSignOut}>
-                Sign out
-            </button>
-        </div>
+        <Button variant="outlined" color="warning" onClick={handleSignOut}>
+            Sign out
+        </Button>
     );
 }
 

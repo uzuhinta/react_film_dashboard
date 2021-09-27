@@ -16,9 +16,8 @@ function App() {
     console.log('In start app: ');
     return (
         <div className="App bg-primary transition-colors duration-300">
-            <LangSwitcher />
-            <ToggleTheme />
-            {auth.user ? <SignOutWithGoogle /> : <LoginWithGoogle />}
+
+            {/* {auth.user ? <SignOutWithGoogle /> : <LoginWithGoogle />} */}
 
             <ThemeRoutes />
         </div>

@@ -22,9 +22,7 @@ function AdminLayout() {
             >
                 <Header />
             </Box>
-            <Box sx={{ gridArea: 'sidebar', backgroundColor: '#0f0' }}>
-                Sidebar
-            </Box>
+            <Box sx={{ gridArea: 'sidebar' }}>Sidebar</Box>
             <Box sx={{ gridArea: 'main' }}>
                 <Outlet />
             </Box>

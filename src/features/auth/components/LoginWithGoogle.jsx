@@ -1,7 +1,7 @@
+import { Button } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { googleSignInStart } from '../authSlice';
-import styled from './Auth.module.css';
 
 function LoginWithGoogle() {
     const dispatch = useDispatch();
@@ -11,8 +11,7 @@ function LoginWithGoogle() {
         dispatch(googleSignInStart());
     };
     return (
-        <div>
-            <button className={styled.button} onClick={handleClick}>
+            <Button onClick={handleClick}>
                 {authState.status === 'loading' ? (
                     <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-purple-500 inline-block"></div>
                 ) : null}
@@ -20,8 +19,7 @@ function LoginWithGoogle() {
                 {/* {authState.status === 'error'
                     ? 'Try login with google again'
                     : ''} */}
-            </button>
-        </div>
+            </Button>
     );
 }
 

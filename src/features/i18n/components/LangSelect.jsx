@@ -18,9 +18,14 @@ export default function LangSwitcher() {
         //         </option>
         //     ))}
         // </select>
-        <Select value={lang} onChange={handleChange} autoWidth>
+        <Select
+            variant="standard"
+            value={lang}
+            onChange={handleChange}
+            autoWidth
+        >
             {Object.entries(supportedLangs).map(([code, name]) => (
-                <MenuItem key={code} value={code}>
+                <MenuItem className="text-white" key={code} value={code}>
                     {name}
                 </MenuItem>
             ))}
