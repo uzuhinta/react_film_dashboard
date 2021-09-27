@@ -22,10 +22,28 @@ function AdminLayout() {
             >
                 <Header />
             </Box>
-            <Box sx={{ gridArea: 'sidebar' }}>Sidebar</Box>
-            <Box sx={{ gridArea: 'main' }}>
-                <Outlet />
-            </Box>
+            <div className="shadow">
+                <Box
+                    sx={{
+                        gridArea: 'sidebar',
+                        overflowY: 'auto',
+                        scrollBehavior: 'smooth',
+                    }}
+                >
+                    Sidebar
+                </Box>
+            </div>
+            <div className="bg-secondary  transition-colors duration-300">
+                <Box
+                    sx={{
+                        gridArea: 'main',
+                        overflowY: 'auto',
+                        scrollBehavior: 'smooth',
+                    }}
+                >
+                    <Outlet />
+                </Box>
+            </div>
         </Box>
     );
 }
