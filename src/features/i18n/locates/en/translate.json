@@ -1,5 +1,6 @@
 {
-    "counters": {
-        "darkMode": "Dark Mode"
+    "auth": {
+        "signIn": "Sign in",
+        "signOut": "Sign out"
     }
 }
