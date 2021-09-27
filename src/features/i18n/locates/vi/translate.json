@@ -1,6 +1,8 @@
 {
     "auth": {
-        "signIn": "Đăng nhập",
-        "signOut": "Đăng xuất"
+        "signInWithGoogle": "Đăng nhập bằng Google",
+        "signOut": "Đăng xuất",
+        "loginHi": "Chào mừng bạn trở lại!",
+        "loginTutor": "Đăng nhập vào trình quản lý"
     }
 }

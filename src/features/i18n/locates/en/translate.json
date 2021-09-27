@@ -1,6 +1,8 @@
 {
     "auth": {
-        "signIn": "Sign in",
-        "signOut": "Sign out"
+        "signInWithGoogle": "Sign in with Google",
+        "signOut": "Sign out",
+        "loginHi": "Hi, Welcome Back",
+        "loginTutor": "Sign in to Dashboard"
     }
 }

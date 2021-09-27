@@ -5,13 +5,13 @@ import { Outlet } from 'react-router-dom';
 
 function MinimalLayout() {
     return (
-        <>
-            <div className="float-right">
+        <div className="grid h-screen grid-rows-minimal">
+            <div className="flex justify-end">
                 <LangSwitcher />
                 <ToggleTheme />
             </div>
             <Outlet />
-        </>
+        </div>
     );
 }
 

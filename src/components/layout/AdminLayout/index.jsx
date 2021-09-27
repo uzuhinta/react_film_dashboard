@@ -8,7 +8,7 @@ function AdminLayout() {
         <Box
             sx={{
                 display: 'grid',
-                gridTemplateColumns: '240px 1fr',
+                gridTemplateColumns: '300px 1fr',
                 gridTemplateRows: 'auto 1fr',
                 gridTemplateAreas: `"header header"
                                     "sidebar main"`,
@@ -33,7 +33,7 @@ function AdminLayout() {
                     Sidebar
                 </Box>
             </div>
-            <div className="bg-secondary  transition-colors duration-300">
+            <div className="bg-secondary px-3 py-4  transition-colors duration-300">
                 <Box
                     sx={{
                         gridArea: 'main',
@@ -41,6 +41,7 @@ function AdminLayout() {
                         scrollBehavior: 'smooth',
                     }}
                 >
+                    fsadfasdfas
                     <Outlet />
                 </Box>
             </div>
