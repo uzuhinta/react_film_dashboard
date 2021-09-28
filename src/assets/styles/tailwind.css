@@ -39,3 +39,29 @@
 html {
     scroll-behavior: smooth;
 }
+
+#modal {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal:empty {
+    display: none;
+}
+
+#modal > div {
+    background-color: white;
+    max-width: 500px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 30px;
+    background: #faeff0;
+}

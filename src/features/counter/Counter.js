@@ -9,12 +9,14 @@ import {
     selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import Modal from 'components/Modal';
 
 export function Counter() {
     const count = useSelector(selectCount);
     const dispatch = useDispatch();
     const [incrementAmount, setIncrementAmount] = useState('2');
     const incrementValue = Number(incrementAmount) || 0;
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div>
@@ -60,6 +62,24 @@ export function Counter() {
                 >
                     Add If Odd
                 </button>
+                <button
+                    className={styles.button}
+                    onClick={() => setIsOpen(true)}
+                >
+                    Show
+                </button>
+                {isOpen ? (
+                    <Modal>
+                        <div>
+                            <h1>Would you like to adopt ?</h1>
+                            <div className="buttons">
+                                <button onClick={() => setIsOpen(false)}>
+                                    No
+                                </button>
+                            </div>
+                        </div>
+                    </Modal>
+                ) : null}
             </div>
         </div>
     );
