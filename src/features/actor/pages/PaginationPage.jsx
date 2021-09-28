@@ -45,7 +45,7 @@ function PaginationPage() {
         { field: 'summary', headerName: 'Summary', minWidth: 300 },
     ];
 
-    const [pageSize, setPageSize] = React.useState(5);
+    const [pageSize, setPageSize] = React.useState(20);
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -67,7 +67,7 @@ function PaginationPage() {
                         onPageSizeChange={(newPageSize) =>
                             setPageSize(newPageSize)
                         }
-                        rowsPerPageOptions={[20, 40, 100]}
+                        rowsPerPageOptions={[5, 10, 20]}
                         pagination
                         rows={datas}
                         columns={columns}
