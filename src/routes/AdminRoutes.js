@@ -3,6 +3,7 @@ import MinimalLayout from 'components/layout/MinimalLayout';
 import Login from 'features/auth/pages/Login';
 import { Counter } from 'features/counter/Counter';
 import { Navigate } from 'react-router-dom';
+import NotFound from 'components/NotFound';
 
 export const AdminRoutes = (isUserLogin) => ({
     path: '/app',
@@ -15,6 +16,10 @@ export const AdminRoutes = (isUserLogin) => ({
         {
             path: '/',
             element: <Counter />,
+        },
+        {
+            path: '*',
+            element: <NotFound />,
         },
     ],
 });
