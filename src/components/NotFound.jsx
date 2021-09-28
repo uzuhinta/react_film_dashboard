@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router';
 function NotFound() {
     const navigate = useNavigate();
     return (
-        <div className="flex items-center h-full">
+        <div className="mt-10">
             <div className="relative  max-w-login-form mx-auto">
                 <h2 className="text-center text-primary font-bold text-2xl mb-3">
                     Sorry, page not found!
                 </h2>
-                <p className="text-primary mb-20">
+                <p className="text-primary mb-10">
                     Sorry, we couldn’t find the page you’re looking for. Perhaps
                     you’ve mistyped the URL? Be sure to check your spelling.
                 </p>
@@ -32,7 +32,7 @@ function NotFound() {
                     alt="not found"
                 />
                 <button
-                    className="absolute mt-20 left-1/2 transform -translate-x-1/2 bg-green-400 hover:bg-green-300 text-white font-bold py-3 px-6 rounded-md shadow-3xl transition-all duration-200 "
+                    className="absolute mt-10 left-1/2 transform -translate-x-1/2 bg-green-400 hover:bg-green-300 text-white font-bold py-3 px-6 rounded-md shadow-3xl transition-all duration-200 "
                     onClick={() => navigate('/')}
                 >
                     Go To Home
