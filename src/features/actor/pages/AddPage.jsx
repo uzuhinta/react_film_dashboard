@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 
 const initialValues = {
     fullname: '',
+    dob: null,
 };
 
 const validationSchema = Yup.object().shape({
@@ -17,28 +18,36 @@ function AddPage() {
         console.log(value);
     };
     return (
-        <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={onSubmit}
-        >
-            {(formikProps) => {
-                const { isSubmitting } = formikProps;
-                return (
-                    <Form>
-                        <FastField
-                            name="fullname"
-                            component={InputField}
-                            label="Full name"
-                            placeholder="Your full name"
-                        />
-                        <FormGroup>
-                            <Button type="submit">Add actor</Button>
-                        </FormGroup>
-                    </Form>
-                );
-            }}
-        </Formik>
+        <>
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+            >
+                {(formikProps) => {
+                    const { isSubmitting } = formikProps;
+                    return (
+                        <Form>
+                            <FastField
+                                name="fullname"
+                                component={InputField}
+                                label="Full name"
+                                placeholder="Your full name"
+                            />
+                            <FastField
+                                name="dob"
+                                component={InputField}
+                                placeholder="yyyy-MM-dd"
+                            />
+
+                            <FormGroup>
+                                <Button type="submit">Add actor</Button>
+                            </FormGroup>
+                        </Form>
+                    );
+                }}
+            </Formik>
+        </>
     );
 }
 
