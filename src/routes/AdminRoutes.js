@@ -5,6 +5,8 @@ import { Counter } from 'features/counter/Counter';
 import { Navigate } from 'react-router-dom';
 import NotFound from 'components/NotFound';
 import AllPage from 'features/actor/pages/AllPage';
+import PaginationPage from 'features/actor/pages/PaginationPage';
+import AddPage from 'features/actor/pages/AddPage';
 
 export const AdminRoutes = (isUserLogin) => ({
     path: '/app',
@@ -15,6 +17,14 @@ export const AdminRoutes = (isUserLogin) => ({
             element: <Counter />,
         },
         {
+            path: '/actor/add',
+            element: <AddPage />,
+        },
+        {
+            path: '/actor/pagination',
+            element: <PaginationPage />,
+        },
+        {
             path: '/actor/all',
             element: <AllPage />,
         },
@@ -23,7 +33,7 @@ export const AdminRoutes = (isUserLogin) => ({
             element: <Counter />,
         },
         {
-            path: '*',
+            path: '/404',
             element: <NotFound />,
         },
     ],

@@ -35,14 +35,13 @@ function AdminLayout() {
                     <Sidebar />
                 </Box>
             </div>
-            <div className="scroll bg-secondary px-3 pt-2 overflow-y-auto transition-colors duration-300">
+            <div className="scroll bg-secondary px-3 pt-2 pb-3 overflow-y-auto transition-colors duration-300">
                 <Box
                     sx={{
                         gridArea: 'main',
                     }}
                 >
-
-                        <Outlet className="h-full" />
+                    <Outlet className="h-full" />
                 </Box>
             </div>
         </Box>

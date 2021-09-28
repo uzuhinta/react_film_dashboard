@@ -7,7 +7,6 @@ import { googleSignOut } from '../authSlice';
 function SignOutWithGoogle() {
     const dispatch = useDispatch();
     const t = useSelector(selectTranslations);
-    console.log({ t });
     const handleSignOut = () => {
         dispatch(googleSignOut());
     };

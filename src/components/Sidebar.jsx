@@ -73,12 +73,22 @@ export default function Sidebar() {
                                 <ListItemText primary="All" />
                             </ListItemButton>
                         </ListItem>
-                        <ListItem disablePadding>
+                        <ListItem
+                            disablePadding
+                            onClick={() =>
+                                handleNavigate('/app/actor/pagination')
+                            }
+                        >
                             <ListItemButton>
-                                <ListItemIcon>
-                                    <AllInbox />
-                                </ListItemIcon>
-                                <ListItemText primary="Drafts" />
+                                <ListItemText primary="Pagination" />
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem
+                            disablePadding
+                            onClick={() => handleNavigate('/app/actor/add')}
+                        >
+                            <ListItemButton>
+                                <ListItemText primary="Add" />
                             </ListItemButton>
                         </ListItem>
                     </List>
