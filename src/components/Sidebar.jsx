@@ -1,10 +1,20 @@
 import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import Typography from '@mui/material/Typography';
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Button,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Typography,
+} from '@mui/material';
+import RecentActorsIcon from '@mui/icons-material/RecentActors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Button } from '@mui/material';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { AllInbox } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
 import { useThemeDark } from 'utils';
 
@@ -16,6 +26,7 @@ export default function Sidebar() {
     const bg = {
         backgroundColor: `${isDark ? '#2d3748' : '#ffffff'}`,
         transition: 'all ease 0.3s',
+        padding: 0,
     };
 
     const text = {
@@ -36,21 +47,41 @@ export default function Sidebar() {
             <Accordion
                 expanded={expanded === 'panel1'}
                 onChange={handleChange('panel1')}
+                disablePadding
                 sx={bg}
             >
                 <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
+                    expandIcon={<ExpandMoreIcon sx={text} />}
                     aria-controls="panel1bh-content"
+                    onClick={() => handleNavigate('/app/actor/all')}
                     id="panel1bh-header"
                 >
-                    <Typography sx={text}>General settings</Typography>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <RecentActorsIcon sx={text} />
+                        </ListItemIcon>
+                        <ListItemText sx={text} primary="Actors" />
+                    </ListItemButton>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
-                        Nulla facilisi. Phasellus sollicitudin nulla et quam
-                        mattis feugiat. Aliquam eget maximus est, id dignissim
-                        quam.
-                    </Typography>
+                    <List>
+                        <ListItem
+                            disablePadding
+                            onClick={() => handleNavigate('/app/actor/all')}
+                        >
+                            <ListItemButton>
+                                <ListItemText primary="All" />
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <AllInbox />
+                                </ListItemIcon>
+                                <ListItemText primary="Drafts" />
+                            </ListItemButton>
+                        </ListItem>
+                    </List>
                 </AccordionDetails>
             </Accordion>
             <Accordion
@@ -81,7 +112,12 @@ export default function Sidebar() {
                     aria-controls="panel3bh-content"
                     id="panel3bh-header"
                 >
-                    <Typography>Advanced settings</Typography>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <RecentActorsIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Inbox" />
+                    </ListItemButton>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
@@ -91,10 +127,18 @@ export default function Sidebar() {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-
-            <Button onClick={() => handleNavigate('/app/404')} fullWidth>
-                404 page
-            </Button>
+            <AccordionSummary
+                onClick={() => handleNavigate('/app/404')}
+                aria-controls="panel3bh-content"
+                id="panel3bh-header"
+            >
+                <ListItemButton>
+                    <ListItemIcon>
+                        <ErrorOutlineIcon sx={text} />
+                    </ListItemIcon>
+                    <ListItemText primary="404 page" sx={text} />
+                </ListItemButton>
+            </AccordionSummary>
         </div>
     );
 }

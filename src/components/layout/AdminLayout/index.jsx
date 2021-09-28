@@ -1,6 +1,7 @@
 import { Box } from '@mui/system';
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -40,8 +41,8 @@ function AdminLayout() {
                         gridArea: 'main',
                     }}
                 >
-                    fsadfasdfas
-                    <Outlet className="h-full" />
+
+                        <Outlet className="h-full" />
                 </Box>
             </div>
         </Box>
