@@ -1,20 +1,20 @@
+import { Button } from '@mui/material';
+import { selectTranslations } from 'features/i18n/i18nSlice';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { googleSignOut } from '../authSlice';
-import { auth } from '../firebase';
-import styled from './Auth.module.css';
 
 function SignOutWithGoogle() {
     const dispatch = useDispatch();
+    const t = useSelector(selectTranslations);
+    console.log({ t });
     const handleSignOut = () => {
         dispatch(googleSignOut());
     };
     return (
-        <div>
-            <button className={styled.button} onClick={handleSignOut}>
-                Sign out
-            </button>
-        </div>
+        <Button variant="outlined" color="warning" onClick={handleSignOut}>
+            {t.auth.signOut}
+        </Button>
     );
 }
 

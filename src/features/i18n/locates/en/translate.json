@@ -1,5 +1,8 @@
 {
-    "counters": {
-        "darkMode": "Dark Mode"
+    "auth": {
+        "signInWithGoogle": "Sign in with Google",
+        "signOut": "Sign out",
+        "loginHi": "Hi, Welcome Back",
+        "loginTutor": "Sign in to Dashboard"
     }
 }

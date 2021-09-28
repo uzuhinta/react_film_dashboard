@@ -1,17 +1,13 @@
-import Login from 'features/auth/pages/Login';
-import { Counter } from 'features/counter/Counter';
-import { Navigate } from 'react-router-dom';
+import { selectAuth } from 'features/auth/authSlice';
+import { useSelector } from 'react-redux';
+import { useRoutes } from 'react-router-dom';
+import { AdminRoutes } from './AdminRoutes';
+import { PublicRoutes } from './PublicRoutes';
 
-const routes = (isUserLogin) => [
-    {
-        path: '/app',
-        element: isUserLogin ? <Counter /> : <Navigate to="/" />,
-        // children: [{ path: '/counter', element: <Counter /> }],
-    },
-    {
-        path: '/',
-        element: !isUserLogin ? <Login /> : <Navigate to="/app" />,
-    },
-];
+function ThemeRoutes() {
+    const auth = useSelector(selectAuth);
+    const isUserLogin = auth.user;
+    return useRoutes([AdminRoutes(isUserLogin), PublicRoutes(isUserLogin)]);
+}
 
-export default routes;
+export default ThemeRoutes;

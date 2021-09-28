@@ -1,5 +1,8 @@
 {
-    "counters": {
-        "darkMode": "Chế độ tối"
+    "auth": {
+        "signInWithGoogle": "Đăng nhập bằng Google",
+        "signOut": "Đăng xuất",
+        "loginHi": "Chào mừng bạn trở lại!",
+        "loginTutor": "Đăng nhập vào trình quản lý"
     }
 }

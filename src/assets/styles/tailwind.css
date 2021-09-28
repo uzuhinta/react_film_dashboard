@@ -2,16 +2,40 @@
  * This injects Tailwind's base styles and any base styles registered by
  * plugins.
  */
- @tailwind base;
+@tailwind base;
 
- /**
+/**
   * This injects Tailwind's component classes and any component classes
   * registered by plugins.
   */
- @tailwind components;
- 
- /**
+@tailwind components;
+
+/**
   * This injects Tailwind's utility classes and any utility classes registered
   * by plugins.
   */
- @tailwind utilities;
+@tailwind utilities;
+
+/* width */
+.scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+    background: #0c222f;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: rgb(151, 150, 150);
+}
+
+html {
+    scroll-behavior: smooth;
+}
