@@ -1,5 +1,6 @@
 import { Box } from '@mui/system';
 import Header from 'components/Header';
+import Sidebar from 'components/Sidebar';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -30,7 +31,7 @@ function AdminLayout() {
                         scrollBehavior: 'smooth',
                     }}
                 >
-                    Sidebar
+                    <Sidebar />
                 </Box>
             </div>
             <div className="scroll bg-secondary px-3 pt-2 overflow-y-auto transition-colors duration-300">
