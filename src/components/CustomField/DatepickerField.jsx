@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-    FormControl,
-    FormGroup,
-    Input,
-    InputLabel,
-    TextField,
-} from '@mui/material';
+import { FormGroup, Input, InputLabel, TextField } from '@mui/material';
 import { Label } from '@mui/icons-material';
 import { ErrorMessage } from 'formik';
 import { useThemeDark } from 'utils';
 
-function InputField(props) {
+function DatepickerField(props) {
     const { form, field, type, label, placeholder, disabled } = props;
     const { name, value, onChange, onBlur } = field;
     const { errors, touched } = form;
@@ -39,6 +33,7 @@ function InputField(props) {
                 </div>
             )}
             <TextField
+                type="date"
                 id={name}
                 style={bg}
                 name={name}
@@ -55,6 +50,6 @@ function InputField(props) {
     );
 }
 
-InputField.propTypes = {};
+DatepickerField.propTypes = {};
 
-export default InputField;
+export default DatepickerField;

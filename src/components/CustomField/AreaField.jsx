@@ -1,17 +1,8 @@
+import { FormGroup, InputLabel, TextField } from '@mui/material';
 import React from 'react';
-import PropTypes from 'prop-types';
-import {
-    FormControl,
-    FormGroup,
-    Input,
-    InputLabel,
-    TextField,
-} from '@mui/material';
-import { Label } from '@mui/icons-material';
-import { ErrorMessage } from 'formik';
 import { useThemeDark } from 'utils';
 
-function InputField(props) {
+function AreaField(props) {
     const { form, field, type, label, placeholder, disabled } = props;
     const { name, value, onChange, onBlur } = field;
     const { errors, touched } = form;
@@ -39,6 +30,8 @@ function InputField(props) {
                 </div>
             )}
             <TextField
+                type="text"
+                multiline
                 id={name}
                 style={bg}
                 name={name}
@@ -55,6 +48,4 @@ function InputField(props) {
     );
 }
 
-InputField.propTypes = {};
-
-export default InputField;
+export default AreaField;

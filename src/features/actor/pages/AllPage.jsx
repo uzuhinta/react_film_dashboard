@@ -14,6 +14,9 @@ import { useThemeDark } from 'utils';
 
 function AllPage() {
     const [datas, setDatas] = useState([]);
+    const [isShow, setIsShow] = useState(false);
+    const [selectedActor, setSelectedActor] = useState({});
+
     useEffect(() => {
         async function fetAllActor() {
             const response = await getAll();
@@ -22,6 +25,10 @@ function AllPage() {
         }
         fetAllActor();
     }, []);
+
+    const handleClick = (e, actor) => {
+        console.log(actor);
+    };
 
     const isDark = useThemeDark();
 
@@ -64,7 +71,7 @@ function AllPage() {
                     <TableBody>
                         {datas.map((row) => (
                             <TableRow
-                                onClick={() => console.log(1231232123)}
+                                onClick={(e) => handleClick(e, row)}
                                 key={row.id}
                                 sx={{
                                     '&:last-child td, &:last-child th': {

@@ -52,3 +52,5 @@ Setup dark/light with useContext: https://jeffjadulco.com/blog/dark-mode-react-t
 Set up custom i18n: https://phrase.com/blog/posts/roll-your-own-i18n-solution-react-redux/
 
 Authentication with google provider: https://dev.to/mdamirgauhar/firebase-google-authentication-with-react-gop
+
+Upload file with preview: https://codesandbox.io/s/formik-simple-upload-example-forked-kgfv9?file=/index.js:1415-1416

@@ -66,6 +66,7 @@ export default function Sidebar() {
                 <AccordionDetails>
                     <List>
                         <ListItem
+                            sx={text}
                             disablePadding
                             onClick={() => handleNavigate('/app/actor/all')}
                         >
@@ -74,6 +75,7 @@ export default function Sidebar() {
                             </ListItemButton>
                         </ListItem>
                         <ListItem
+                            sx={text}
                             disablePadding
                             onClick={() =>
                                 handleNavigate('/app/actor/pagination')
@@ -84,6 +86,7 @@ export default function Sidebar() {
                             </ListItemButton>
                         </ListItem>
                         <ListItem
+                            sx={text}
                             disablePadding
                             onClick={() => handleNavigate('/app/actor/add')}
                         >
